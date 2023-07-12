@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>To-Do List</title>
 </head>
 <body>
     <div id="to-do">
         <div class="container">
             To-Do List
-            <button> Clear </button> 
+            <button> <i class="fa fa-refresh"></i> </button> 
         </div>
         <div class="container">
             <form>
-                <input type="text" id="new" placeholder="Add an item...">
-                <button id="btn"> Add </button> 
+                <input type="text" id="new" placeholder="Add an item..." required autocomplete="off">
+                <button id="add-btn"> <i class="fa fa-plus"> </i> </button> 
             </form>
         </div>
         <table id="list">
