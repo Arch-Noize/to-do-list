@@ -1,3 +1,33 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 #to-do {
-  background-color: red;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  border: 4px #a8a5a5 solid;
+  box-shadow: 1px 8px 16px #afafaf93;
+  width: 90%;
+  padding: 0.5em;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#new {
+  font-style: italic;
+}
+
+input[type="text"] {
+  border: none;
+  font-size: 1em;
+}
+
+input[type="checkbox"]:checked + span {
+  font-style: italic;
+  text-decoration: line-through;
+  color: #b9b9b9;
 }
