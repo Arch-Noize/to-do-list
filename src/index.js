@@ -5,7 +5,6 @@ import './index.css';
 const items = JSON.parse(localStorage.getItem('items')) || [];
 const list = document.querySelector('#list');
 const addBtn = document.querySelector("#add-btn");
-const removeBtn = document.querySelectorAll("#remove");
 
 /* To-do list displaying and storing */
 
@@ -14,13 +13,13 @@ const todoList = () => {
   
     items.forEach((item) => {
         list.innerHTML += `
-        <tr>
-            <td>
-            <input type="checkbox"><span class="item">${item.desc}</span> 
-            <button id="remove"> <i class="fa fa-times"></i> </button>
-            </td>
-        </tr>`;
+        <li> 
+            <input type="checkbox"> <span class="item">${item.desc}</span>  
+            <button class="edit"> <i class="fa fa-reorder"></i> </button>
+            <button class="remove"> <i class="fa fa-times"></i> </button>
+        </li>`;
     });
+
 };
 
 const storeItem = () => {
@@ -38,48 +37,68 @@ const addItem = (desc) => {
         index: items.length + 1,
     }
     items.push(item);
+    console.log(items);
     storeItem();
 } 
 
-addBtn.addEventListener('click', () => {
+addBtn.addEventListener('click', (e) => {
+    e.preventDefault();
     const newItem = document.querySelector("#new").value;
-    addItem(newItem);
-    list.innerHTML += `
-    <tr>
-        <td> 
-            <input type="checkbox"> <span class="item">${newItem}</span>  
-            <button id="remove"> <i class="fa fa-times"></i> </button> 
-        </td>
-    </tr>`;
-    document.querySelector("#new").value = '';
+    if(!newItem){
+        alert("Please add a task!")
+    } else {
+        addItem(newItem);
+        list.innerHTML += `
+            <li> 
+                <input type="checkbox"> <span class="item">${newItem}</span>  
+                <button> <i class="fa fa-reorder"></i> </button>
+                <button> <i class="fa fa-times remove"></i> </button>
+            </li>`;
+        document.querySelector("#new").value = '';
+    }
+    console.log(items);
 })
 
 /* Remove Item */
 
-// const removeItem = (index) => {
-//     items.splice(index, 1);
-//     for (let i = index; i < items.length; i += 1) {
-//       items[i].index = i + 1;
-//     }
-//     storeItem();
-// }
-
-// removeBtn.addEventListener('click', () => {
-
-// })
-
-/* Edit Item */
-
-const editItem = (index, desc) => {
-    items[index].desc = desc;
+const removeItem = (index) => {
+    items.splice(index, 1);
+    for (let i = index; i < items.length; i += 1) {
+      items[i].index = i + 1;
+    }
+    console.log(items);
     storeItem();
 }
 
-document.querySelectorAll('.item').forEach((item) => {
-    item.addEventListener('click', (event) => {
-        console.log('test');
-      const desc = event.target.textContent;
-      const index = [...item.parentElement.children].indexOf(item) - 1;
-      editItem(index, desc);
-    });
-});
+list.addEventListener('click', (e) => {
+    if(e.target.classList.contains("fa-times")){
+        let item = document.querySelector('.item').textContent;
+        // let index = items.indexOf(item);
+        let r = items.some(i => i.desc.includes(item));
+        let index = items.findIndex(i => i.desc === document.querySelector('.item').textContent);
+        console.log(r + '' + index);
+        e.target.parentElement.parentElement.remove();
+        console.log("delete me!");
+    } else if (e.target.classList.contains("fa-reorder")) {
+        console.log("change me!");
+    }
+})
+
+/* Edit Item */
+
+
+// document.addEventListener('click', (e) => {
+//     const editBtn = e.target.document.querySelector(".edit");
+//     const removeBtn = e.target.closest(".remove");
+//     console.log('ive been clicked');
+
+//     if (editBtn){
+//         console.log("you can edit me!")
+//     }
+
+//     if (removeBtn){
+//         console.log("you can delete me!")
+//     }
+
+//  })
+    
