@@ -2,16 +2,19 @@ import './index.css';
 
 /* Selectors */
 
-const items = JSON.parse(localStorage.getItem('items')) || [];
+const todo = JSON.parse(localStorage.getItem('items')) || [];
 const list = document.querySelector('#list');
 const addBtn = document.querySelector("#add-btn");
+const storeItem = () => {
+    window.localStorage.setItem('items', JSON.stringify(todo));
+} 
 
 /* To-do list displaying and storing */
 
 const todoList = () => {
-    items.sort((a, b) => a.index - b.index);
+    todo.sort((a, b) => a.index - b.index);
   
-    items.forEach((item) => {
+    todo.forEach((item) => {
         list.innerHTML += `
         <li> 
             <input type="checkbox"> <span class="item">${item.desc}</span>  
@@ -21,10 +24,6 @@ const todoList = () => {
     });
 
 };
-
-const storeItem = () => {
-    localStorage.setItem('items', JSON.stringify(items));
-} 
   
 todoList();
 
@@ -34,10 +33,9 @@ const addItem = (desc) => {
     const item = {
         desc,
         completed: false,
-        index: items.length + 1,
+        index: todo.length + 1,
     }
-    items.push(item);
-    console.log(items);
+    todo.push(item);
     storeItem();
 } 
 
@@ -49,34 +47,36 @@ addBtn.addEventListener('click', (e) => {
     } else {
         addItem(newItem);
         list.innerHTML += `
-            <li> 
-                <input type="checkbox"> <span class="item">${newItem}</span>  
+            <li class="item"> 
+                <input type="checkbox">${newItem}</span>  
                 <button> <i class="fa fa-reorder"></i> </button>
                 <button> <i class="fa fa-times remove"></i> </button>
             </li>`;
         document.querySelector("#new").value = '';
     }
-    console.log(items);
+    localStorage.clear();
+    storeItem();
 })
 
 /* Remove Item */
 
 const removeItem = (index) => {
-    items.splice(index, 1);
-    for (let i = index; i < items.length; i += 1) {
-      items[i].index = i + 1;
+    todo.splice(index, 1);
+    for (let i = index; i < todo.length; i += 1) {
+        todo[i].index = i + 1;
     }
-    console.log(items);
     storeItem();
 }
 
 list.addEventListener('click', (e) => {
     if(e.target.classList.contains("fa-times")){
-        let item = document.querySelector('.item').textContent;
-        // let index = items.indexOf(item);
-        let r = items.some(i => i.desc.includes(item));
-        let index = items.findIndex(i => i.desc === document.querySelector('.item').textContent);
-        console.log(r + '' + index);
+        let items = document.querySelector('.item').textContent;
+        console.log(items);
+        // if (todo.some(i => i.desc.includes(items)) {
+        //     for 
+        // }
+        let index = todo.map(i => i.desc).indexOf(items);
+        console.log(index);
         e.target.parentElement.parentElement.remove();
         console.log("delete me!");
     } else if (e.target.classList.contains("fa-reorder")) {
@@ -85,20 +85,4 @@ list.addEventListener('click', (e) => {
 })
 
 /* Edit Item */
-
-
-// document.addEventListener('click', (e) => {
-//     const editBtn = e.target.document.querySelector(".edit");
-//     const removeBtn = e.target.closest(".remove");
-//     console.log('ive been clicked');
-
-//     if (editBtn){
-//         console.log("you can edit me!")
-//     }
-
-//     if (removeBtn){
-//         console.log("you can delete me!")
-//     }
-
-//  })
     
