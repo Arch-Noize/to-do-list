@@ -54,7 +54,6 @@ addBtn.addEventListener('click', (e) => {
             </li>`;
         document.querySelector("#new").value = '';
     }
-    localStorage.clear();
     storeItem();
 })
 
@@ -68,15 +67,22 @@ const removeItem = (index) => {
     storeItem();
 }
 
+const findIndex = () => {
+    let items = document.querySelectorAll('.item');
+    let index = 0;
+    for (let i = 1; i < items.length; i++){
+        if (items[i].textContent === todo[i].desc){
+            index = i;
+        }
+    }
+    return index;
+}
+
 list.addEventListener('click', (e) => {
     if(e.target.classList.contains("fa-times")){
-        let items = document.querySelector('.item').textContent;
-        console.log(items);
-        // if (todo.some(i => i.desc.includes(items)) {
-        //     for 
-        // }
-        let index = todo.map(i => i.desc).indexOf(items);
+        let index = findIndex();
         console.log(index);
+        removeItem(index);
         e.target.parentElement.parentElement.remove();
         console.log("delete me!");
     } else if (e.target.classList.contains("fa-reorder")) {
