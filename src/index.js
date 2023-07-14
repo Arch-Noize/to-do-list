@@ -1,11 +1,15 @@
-/* eslint-disable no-alert, no-plusplus, */
-import {todo, storeItem, addItem, editItem, removeItem, findIndex} from './modules/edit';
+/* eslint-disable no-alert, no-plusplus */
+import {
+  todo, storeItem, addItem, editItem, removeItem, findIndex,
+} from './modules/edit.js';
+import {checkedBox, notChecked} from './modules/completed.js';
 import './index.css';
 
 /* Selectors */
 
 const list = document.querySelector('#list');
 const addBtn = document.querySelector('#add-btn');
+const clear = document.querySelector('#clear');
 
 /* To-do list displaying and storing */
 
@@ -15,32 +19,33 @@ const todoList = () => {
   todo.forEach((item) => {
     list.innerHTML += `
         <li> 
-            <input type="checkbox"><span class="item">${item.desc}<i class="fa fa-ellipsis-v"></i></span> 
+            <input type="checkbox" class="check"><span class="item">${item.desc}<i class="fa fa-ellipsis-v"></i></span> 
         </li>`;
   });
 };
 
 addBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    const newItem = document.querySelector('#new').value;
-    if (!newItem) {
-      alert('Please add a task!');
-    } else {
-      addItem(newItem);
-      list.innerHTML += `
+  e.preventDefault();
+  const newItem = document.querySelector('#new').value;
+  if (!newItem) {
+    alert('Please add a task!');
+  } else {
+    addItem(newItem);
+    list.innerHTML += `
               <li> 
-              <input type="checkbox"><span class="item">${newItem}<i id="edit" class="fa fa-ellipsis-v"></i></span> 
+              <input type="checkbox" class="check"><span class="item">${newItem}<i id="edit" class="fa fa-ellipsis-v"></i></span> 
               </li>`;
-      document.querySelector('#new').value = '';
-    }
-    storeItem();
-  });
+    document.querySelector('#new').value = '';
+  }
+  storeItem();
+});
 
 /* List Listeners */
 
 list.addEventListener('click', (e) => {
   const index = findIndex(e);
   if (e.target.classList.contains('fa-ellipsis-v')) {
+    console.log(index);
     e.target.parentElement.contentEditable = 'true';
     e.target.parentElement.addEventListener('input', () => {
       editItem(index, e.target.parentElement.textContent);
@@ -51,7 +56,23 @@ list.addEventListener('click', (e) => {
   } else if (e.target.classList.contains('fa-times')) {
     removeItem(index);
     e.target.parentElement.parentElement.remove();
-  }
+  } 
 });
+
+document.querySelectorAll("check").forEach((item) => {
+    console.log(item);
+    const index = findIndex(item);
+    item.addEventListener('click', () => {
+        console.log(index);
+    })
+})
+
+let checkboxes = document.querySelectorAll("check");
+
+console.log(checkboxes);
+
+clear.addEventListener('click', (e) => {
+    console.log('Hi! I was pressed');
+})
 
 window.addEventListener('DOMContentLoaded', todoList());
