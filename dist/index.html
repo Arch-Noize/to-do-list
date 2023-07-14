@@ -3,12 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>To-Do List</title>
 <script defer src="runtime.js"></script><script defer src="index.js"></script></head>
 <body>
-    <h2> Hi !</h2>
     <div id="to-do">
-        Test
+        <div class="container">
+            To-Do List
+            <button> <i class="fa fa-refresh"></i> </button> 
+        </div>
+        <div class="container">
+            <form>
+                <input type="text" id="new" placeholder="Add an item..." autocomplete="off">
+                <button id="add-btn"> <i class="fa fa-plus"> </i> </button> 
+            </form>
+        </div>
+        <ul id="list">
+            
+        </ul>
     </div>
 </body>
 </html>
