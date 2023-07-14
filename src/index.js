@@ -1,57 +1,59 @@
+/* eslint-disable no-alert, no-plusplus, */
+import {
+  todo, storeItem, addItem, editItem, removeItem, findIndex,
+} from './modules/edit.js';
 import './index.css';
 
 /* Selectors */
 
-const items = JSON.parse(localStorage.getItem('items')) || [];
-const addBtn = document.querySelector("#add-btn");
 const list = document.querySelector('#list');
+const addBtn = document.querySelector('#add-btn');
 
 /* To-do list displaying and storing */
 
 const todoList = () => {
-    items.sort((a, b) => a.index - b.index);
-  
-    items.forEach((item) => {
-        list.innerHTML += `<tr><td><input type="checkbox"><span class="item">${items.desc}</span></td></tr>`;
-    });
+  todo.sort((a, b) => a.index - b.index);
+
+  todo.forEach((item) => {
+    list.innerHTML += `
+        <li> 
+            <input type="checkbox"><span class="item">${item.desc}<i class="fa fa-ellipsis-v"></i></span> 
+        </li>`;
+  });
 };
 
-const storeItem = () => {
-    localStorage.setItem('items', JSON.stringify(items));
-} 
-  
-todoList();
-
-/* To-do list functions */
-
-const addItem = (desc) => {
-    const item = {
-        desc,
-        completed: false,
-        index: items.length + 1,
-    }
-    items.push(item);
-    storeItem();
-} 
-
-const removeTask = (index) => {
-    items.splice(index, 1);
-    for (let i = index; i < tasks.length; i += 1) {
-      items[i].index = i + 1;
-    }
-    storeTasks();
-  }
-
-/* Buttons */
-
-addBtn.addEventListener('click', () => {
-    const newItem = document.querySelector("#new").value;
+addBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  const newItem = document.querySelector('#new').value;
+  if (!newItem) {
+    alert('Please add a task!');
+  } else {
     addItem(newItem);
     list.innerHTML += `
-    <tr>
-        <td> 
-            <input type="checkbox"> <span class="item">${newItem}</span>
-        </td>
-    </tr>`;
-    document.querySelector("#new").value = '';
-})
+              <li> 
+              <input type="checkbox"><span class="item">${newItem}<i id="edit" class="fa fa-ellipsis-v"></i></span> 
+              </li>`;
+    document.querySelector('#new').value = '';
+  }
+  storeItem();
+});
+
+/* List Listeners */
+
+list.addEventListener('click', (e) => {
+  const index = findIndex(e);
+  if (e.target.classList.contains('fa-ellipsis-v')) {
+    e.target.parentElement.contentEditable = 'true';
+    e.target.parentElement.addEventListener('input', () => {
+      editItem(index, e.target.parentElement.textContent);
+      storeItem();
+    });
+    e.target.classList.remove('fa-ellipsis-v');
+    e.target.classList.add('fa-times');
+  } else if (e.target.classList.contains('fa-times')) {
+    removeItem(index);
+    e.target.parentElement.parentElement.remove();
+  }
+});
+
+window.addEventListener('DOMContentLoaded', todoList());

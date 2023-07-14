@@ -36,19 +36,6 @@
 
 ### Tech Stack <a name="tech-stack"></a>
 
-<details>
-  <summary>Client</summary>
-  <ul>
-    <li><a href="#">HTML</a></li>
-  </ul>
-   <ul>
-    <li><a href="#">CSS</a></li>
-  </ul>
-   <ul>
-    <li><a href="#">Javascript</a></li>
-  </ul>
-</details>
-          
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
@@ -69,19 +56,29 @@
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-- To install a duplicate of this project on your computer, kindly abide by the guidelines provided below.
+- To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-- To launch the project, please clone my repository onto your PC.
+- In order to run this project you need:
 
+Example command:
+
+```sh
+1.use a browser
+2.use cable internet
+```
+ 
 ### Setup
 
-Clone this repository to your desired folder:
+- Clone this repository to your desired folder:
 
-- Click Code button (shown in green color)
-- Copy URL.
-- Please clone it with the following command: git clone (your copied URL)
+Example commands:
+
+```sh
+  git https://github.com/Arch-Noize/to-do-list.git
+  cd to-do-list
+```
 
 ### Install
 
@@ -89,11 +86,14 @@ Clone this repository to your desired folder:
 
 ### Usage
 
-- In order to run this project, please clone this repository to your PC and open index.html file.
+- In order to run this project, clone this repository to your PC and open a terminal, then use:
+```sh
+npm start
+```
 
 ### Run tests
 
-To trace linter errors in VS code, please use the following commands:
+If you are facing linter errors, use:
 
 - For HTML:
 
@@ -115,7 +115,7 @@ npx eslint .
 
 ### Deployment
 
-- You can deploy this project using: gitHub pages
+- You can deploy this project using: GitHub pages
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -142,7 +142,9 @@ npx eslint .
 ## 🤝 Contributing <a name="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
-Feel free to check the [issues page](https://github.com/Arch-Noize/to-do-list/issues).
+
+Feel free to check the [Isues Pages](https://github.com/Arch-Noize/capstone-portfolio/issues)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -150,7 +152,8 @@ Feel free to check the [issues page](https://github.com/Arch-Noize/to-do-list/is
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project, follow my GitHub page.
+
+If you like this project kindly give it a star⭐️.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -158,7 +161,7 @@ If you like this project, follow my GitHub page.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-- I would like to thank Microverse and their Full Stack Web Development course!
+I would like to thank Ricardo Egas for the immense support.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
