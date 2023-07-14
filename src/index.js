@@ -1,16 +1,11 @@
 /* eslint-disable no-alert, no-plusplus, */
-
+import {todo, storeItem, addItem, editItem, removeItem, findIndex} from './modules/edit';
 import './index.css';
 
 /* Selectors */
 
-const todo = JSON.parse(localStorage.getItem('items')) || [];
 const list = document.querySelector('#list');
 const addBtn = document.querySelector('#add-btn');
-
-const storeItem = () => {
-  localStorage.setItem('items', JSON.stringify(todo));
-};
 
 /* To-do list displaying and storing */
 
@@ -25,64 +20,21 @@ const todoList = () => {
   });
 };
 
-/* Add Item */
-
-const addItem = (desc) => {
-  const item = {
-    desc,
-    completed: false,
-    index: todo.length + 1,
-  };
-  todo.push(item);
-  storeItem();
-};
-
 addBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  const newItem = document.querySelector('#new').value;
-  if (!newItem) {
-    alert('Please add a task!');
-  } else {
-    addItem(newItem);
-    list.innerHTML += `
-            <li> 
-            <input type="checkbox"><span class="item">${newItem}<i id="edit" class="fa fa-ellipsis-v"></i></span> 
-            </li>`;
-    document.querySelector('#new').value = '';
-  }
-  storeItem();
-});
-
-/* Remove Item */
-
-const removeItem = (index) => {
-  todo.splice(index, 1);
-  for (let i = index; i < todo.length; i++) {
-    todo[i].index = i + 1;
-  }
-  storeItem();
-};
-
-/* Edit Item */
-
-const editItem = (index, desc) => {
-  todo[index].desc = desc;
-  storeItem();
-};
-
-/* Find Index */
-
-const findIndex = (e) => {
-  const items = document.querySelectorAll('.item');
-  let index = 0;
-  for (let i = 0; i < items.length; i++) {
-    const text = e.target.parentElement.textContent;
-    if (text === todo[i].desc) {
-      index = i;
+    e.preventDefault();
+    const newItem = document.querySelector('#new').value;
+    if (!newItem) {
+      alert('Please add a task!');
+    } else {
+      addItem(newItem);
+      list.innerHTML += `
+              <li> 
+              <input type="checkbox"><span class="item">${newItem}<i id="edit" class="fa fa-ellipsis-v"></i></span> 
+              </li>`;
+      document.querySelector('#new').value = '';
     }
-  }
-  return index;
-};
+    storeItem();
+  });
 
 /* List Listeners */
 
