@@ -1,5 +1,7 @@
 /* eslint-disable no-alert, no-plusplus, */
-import {todo, storeItem, addItem, editItem, removeItem, findIndex} from './modules/edit';
+import {
+  todo, storeItem, addItem, editItem, removeItem, findIndex,
+} from './modules/edit.js';
 import './index.css';
 
 /* Selectors */
@@ -21,20 +23,20 @@ const todoList = () => {
 };
 
 addBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    const newItem = document.querySelector('#new').value;
-    if (!newItem) {
-      alert('Please add a task!');
-    } else {
-      addItem(newItem);
-      list.innerHTML += `
+  e.preventDefault();
+  const newItem = document.querySelector('#new').value;
+  if (!newItem) {
+    alert('Please add a task!');
+  } else {
+    addItem(newItem);
+    list.innerHTML += `
               <li> 
               <input type="checkbox"><span class="item">${newItem}<i id="edit" class="fa fa-ellipsis-v"></i></span> 
               </li>`;
-      document.querySelector('#new').value = '';
-    }
-    storeItem();
-  });
+    document.querySelector('#new').value = '';
+  }
+  storeItem();
+});
 
 /* List Listeners */
 
