@@ -106,7 +106,7 @@ npm start
 
 ### Run tests
 
-To trace linter errors in VS code, please use the following commands:
+If you are facing linter errors, use:
 
 - For HTML:
 
