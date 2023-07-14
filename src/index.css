@@ -30,7 +30,6 @@ input[type="checkbox"]:checked + span {
 
 button {
   border: none;
-  background-color: #fff;
 }
 
 ul {
@@ -39,6 +38,10 @@ ul {
 
 /* To-do list styling */
 
+.btn {
+  background-color: #fff;
+}
+
 #to-do {
   display: flex;
   flex-direction: column;
@@ -46,11 +49,11 @@ ul {
   border: 4px #a8a5a5 solid;
   box-shadow: 1px 8px 16px #afafaf93;
   width: fit-content;
-  padding: 0.5em;
   margin: 1.3em;
 }
 
 .container {
+  padding: 0.5em;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -59,15 +62,46 @@ ul {
 
 #list li {
   display: flex;
-  flex-wrap: wrap;
-  width: 100%;
   gap: 8px;
+  padding: 0.2em;
   margin-bottom: 5px;
   border-bottom: 1px solid grey;
+}
+
+#list span {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  justify-content: space-between;
+  margin-right: 0.5em;
 }
 
 #list i {
   display: inline;
   right: 7rem;
   cursor: pointer;
+}
+
+#list li:last-child {
+  margin: none;
+  border: none;
+}
+
+#clear{
+  background-color: #dedede;
+  font-weight: 300;
+  width: 100%;
+  align-content: center;
+  justify-content: center;
+  transition: ease-in-out 0.3s;
+  flex-grow: 1;
+}
+
+#clear:hover {
+  background-color: #a8a5a5;
+}
+
+#clear:active {
+  background-color: #5b5b5b;
+  color: #bebebe;
 }
