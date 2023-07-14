@@ -33,7 +33,7 @@ const addItem = (desc) => {
     const item = {
         desc,
         completed: false,
-        index: todo.length + 1,
+        index: todo.length,
     }
     todo.push(item);
     storeItem();
@@ -47,8 +47,8 @@ addBtn.addEventListener('click', (e) => {
     } else {
         addItem(newItem);
         list.innerHTML += `
-            <li class="item"> 
-                <input type="checkbox">${newItem}</span>  
+            <li> 
+                <input type="checkbox"> <span class="item">${newItem}</span>  
                 <button> <i class="fa fa-reorder"></i> </button>
                 <button> <i class="fa fa-times remove"></i> </button>
             </li>`;
@@ -61,24 +61,25 @@ addBtn.addEventListener('click', (e) => {
 
 const removeItem = (index) => {
     todo.splice(index, 1);
-    for (let i = index; i < todo.length; i += 1) {
-        todo[i].index = i + 1;
-    }
     storeItem();
 }
 
-const findIndex = () => {
-    let items = document.querySelectorAll('.item');
-    let index = 0;
-    for (let i = 1; i < items.length; i++){
-        if (items[i].textContent === todo[i].desc){
-            index = i;
-        }
-    }
-    return index;
-}
 
 list.addEventListener('click', (e) => {
+    const findIndex = () => {
+        let items = document.querySelectorAll('.item');
+        let index = 0;
+        for (let i = 0; i < items.length; i++){
+            let text = e.target.parentElement.parentElement.textContent.replace(/[\n\r]+|[\s]{2,}/g, ' ').trim();
+            console.log(text);
+            if (text === todo[i].desc){
+                index = i;
+            }
+        }
+        console.log(index);
+        return index;
+    }
+
     if(e.target.classList.contains("fa-times")){
         let index = findIndex();
         console.log(index);
