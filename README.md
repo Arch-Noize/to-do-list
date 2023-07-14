@@ -36,19 +36,6 @@
 
 ### Tech Stack <a name="tech-stack"></a>
 
-<details>
-  <summary>Client</summary>
-  <ul>
-    <li><a href="#">HTML</a></li>
-  </ul>
-   <ul>
-    <li><a href="#">CSS</a></li>
-  </ul>
-   <ul>
-    <li><a href="#">Javascript</a></li>
-  </ul>
-</details>
-          
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
@@ -106,7 +93,7 @@ npm start
 
 ### Run tests
 
-To trace linter errors in VS code, please use the following commands:
+If you are facing linter errors, use:
 
 - For HTML:
 
