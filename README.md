@@ -26,7 +26,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [To-Do List] <a name="about-project"></a>
+# 📖 To-Do List <a name="about-project"></a>
 
 "To-do list" is a tool that helps to organize anyone's day. A simple list adding and removing things to do. This website builds a "To-Do" list using ES6 and Webpack!
 
