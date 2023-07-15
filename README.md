@@ -139,7 +139,6 @@ Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [Isues Pages](https://github.com/Arch-Noize/capstone-portfolio/issues)
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- SUPPORT -->
