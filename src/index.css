@@ -70,7 +70,7 @@ ul {
 
 #list span {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   width: 90%;
   justify-content: space-between;
   margin-right: 0.5em;
@@ -78,7 +78,7 @@ ul {
 
 #list i {
   display: inline;
-  right: 7rem;
+  margin-right: 0.5em;
   cursor: pointer;
 }
 

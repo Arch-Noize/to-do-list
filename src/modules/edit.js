@@ -1,8 +1,8 @@
-/* eslint-disable no-plusplus */
+/* eslint-disable no-plusplus, import/no-mutable-exports */
 
 /* Storage */
 
-export const todo = JSON.parse(localStorage.getItem('items')) || [];
+export let todo = JSON.parse(localStorage.getItem('items')) || [];
 
 export const storeItem = () => {
   localStorage.setItem('items', JSON.stringify(todo));
@@ -42,11 +42,25 @@ export const editItem = (index, desc) => {
 export const findIndex = (e) => {
   const items = document.querySelectorAll('.item');
   let index = 0;
+
   for (let i = 0; i < items.length; i++) {
-    const text = e.target.parentElement.textContent;
-    if (text === todo[i].desc) {
+    if (e.target.textContent === todo[i].desc) {
+      index = i;
+    } if (e.target.nextSibling.textContent === todo[i].desc) {
+      index = i;
+    } else if (e.target.previousSibling.textContent === todo[i].desc) {
       index = i;
     }
   }
+
   return index;
 };
+
+export function clearTasks() {
+  const unchecked = todo.filter((item) => item.completed === false);
+  unchecked.forEach((item, index) => {
+    item.index = index + 1;
+  });
+  todo = unchecked;
+  storeItem();
+}
