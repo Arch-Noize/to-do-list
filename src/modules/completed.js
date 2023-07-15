@@ -1,5 +1,3 @@
-/* eslint-disable no-plusplus */
-
 import {
   todo, storeItem,
 } from './edit.js';

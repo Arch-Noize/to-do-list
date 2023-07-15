@@ -1,4 +1,3 @@
-/* eslint-disable no-alert, no-plusplus */
 import {
   todo, storeItem, addItem, editItem, removeItem, findIndex, clearTasks,
 } from './modules/edit.js';
@@ -28,7 +27,7 @@ addBtn.addEventListener('click', (e) => {
   e.preventDefault();
   const newItem = document.querySelector('#new').value;
   if (!newItem) {
-    alert('Please add a task!');
+    e.preventDefault();
   } else {
     addItem(newItem);
     list.innerHTML += `

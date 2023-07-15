@@ -1,4 +1,4 @@
-/* eslint-disable no-plusplus, import/no-mutable-exports */
+/* eslint-disable import/no-mutable-exports */
 
 /* Storage */
 
@@ -24,7 +24,7 @@ export const addItem = (desc) => {
 
 export const removeItem = (index) => {
   todo.splice(index, 1);
-  for (let i = index; i < todo.length; i++) {
+  for (let i = index; i < todo.length; i+= 1) {
     todo[i].index = i + 1;
   }
   storeItem();
@@ -43,7 +43,7 @@ export const findIndex = (e) => {
   const items = document.querySelectorAll('.item');
   let index = 0;
 
-  for (let i = 0; i < items.length; i++) {
+  for (let i = 0; i < items.length; i+= 1) {
     if (e.target.textContent === todo[i].desc) {
       index = i;
     } if (e.target.nextSibling.textContent === todo[i].desc) {
