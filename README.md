@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <h3><b>To-Do List with ES6</b></h3>
+  <h1><b>To-Do List with ES6</b></h1>
 </div>
 
 # 📗 Table of Contents
@@ -155,7 +155,7 @@ If you like this project kindly give it a star⭐️.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Ricardo Egas for the immense support.
+I would like to thank [Ricardo Egas](https://github.com/RicardoEgas) for the immense support.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
