@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 <div align="center">
-  <h3><b>To-Do List with ES6</b></h3>
+  <h1><b>To-Do List with ES6</b></h1>
 </div>
 
 # 📗 Table of Contents
@@ -23,12 +23,11 @@
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [To-Do List] <a name="about-project"></a>
+# 📖 To-Do List <a name="about-project"></a>
 
 "To-do list" is a tool that helps to organize anyone's day. A simple list adding and removing things to do. This website builds a "To-Do" list using ES6 and Webpack!
 
@@ -48,7 +47,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo - Currently Unavailable!]()
+- [Live Demo](https://arch-noize.github.io/to-do-list/dist/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -60,7 +59,8 @@
 
 ### Prerequisites
 
-- In order to run this project you need:
+In order to run this project you need:
+- Node.js and git on your local computer.
 
 Example command:
 
@@ -82,7 +82,10 @@ Example commands:
 
 ### Install
 
-- Install VS code, Node.js and git on your local computer.
+- Run:
+```sh
+npm start
+```
 
 ### Usage
 
@@ -95,19 +98,19 @@ npm start
 
 If you are facing linter errors, use:
 
-- For HTML:
+- For Hintrc:
 
 ```
 npx hint .
 ```
 
-- For CSS:
+- For Stylelint:
 
 ```
-npx stylelint "**/*.{css,scss}"
+npx stylelint "**/*.{css}"
 ```
 
-- For Javascript:
+- For ESlint:
 
 ```
 npx eslint .
@@ -115,7 +118,7 @@ npx eslint .
 
 ### Deployment
 
-- You can deploy this project using: GitHub pages
+- I deployed this project using: GitHub pages
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -129,13 +132,12 @@ npx eslint .
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- FUTURE FEATURES -->
-
 ## 🔭 Future Features <a name="future-features"></a>
 
-- Adding and removing elements from the To-Do list. 
+- Adding animation and interactability to drag the items from their position to another position!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 <!-- CONTRIBUTING -->
 
@@ -144,7 +146,6 @@ npx eslint .
 Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [Isues Pages](https://github.com/Arch-Noize/capstone-portfolio/issues)
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -161,7 +162,7 @@ If you like this project kindly give it a star⭐️.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Ricardo Egas for the immense support.
+I would like to thank [Ricardo Egas](https://github.com/RicardoEgas) for the immense support.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

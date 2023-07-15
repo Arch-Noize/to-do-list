@@ -1,23 +1,24 @@
-/* eslint-disable no-alert, no-plusplus, */
 import {
-  todo, storeItem, addItem, editItem, removeItem, findIndex,
+  finalTodo, storeItem, addItem, editItem, removeItem, findIndex, clearTasks,
 } from './modules/edit.js';
+import { checkedBox, notChecked } from './modules/completed.js';
 import './index.css';
 
 /* Selectors */
 
 const list = document.querySelector('#list');
 const addBtn = document.querySelector('#add-btn');
+const clear = document.querySelector('#clear');
 
 /* To-do list displaying and storing */
 
 const todoList = () => {
-  todo.sort((a, b) => a.index - b.index);
+  finalTodo.sort((a, b) => a.index - b.index);
 
-  todo.forEach((item) => {
+  finalTodo.forEach((item) => {
     list.innerHTML += `
-        <li> 
-            <input type="checkbox"><span class="item">${item.desc}<i class="fa fa-ellipsis-v"></i></span> 
+        <li class="item"> 
+            <input type="checkbox" class="check"><span>${item.desc}</span><i class="fa fa-ellipsis-v"></i>
         </li>`;
   });
 };
@@ -26,13 +27,13 @@ addBtn.addEventListener('click', (e) => {
   e.preventDefault();
   const newItem = document.querySelector('#new').value;
   if (!newItem) {
-    alert('Please add a task!');
+    e.preventDefault();
   } else {
     addItem(newItem);
     list.innerHTML += `
-              <li> 
-              <input type="checkbox"><span class="item">${newItem}<i id="edit" class="fa fa-ellipsis-v"></i></span> 
-              </li>`;
+        <li class="item"> 
+          <input type="checkbox" class="check"><span>${newItem}</span><i class="fa fa-ellipsis-v"></i>
+        </li>`;
     document.querySelector('#new').value = '';
   }
   storeItem();
@@ -52,8 +53,26 @@ list.addEventListener('click', (e) => {
     e.target.classList.add('fa-times');
   } else if (e.target.classList.contains('fa-times')) {
     removeItem(index);
-    e.target.parentElement.parentElement.remove();
+    e.target.parentElement.remove();
+  } else if (e.target.classList.contains('check')) {
+    e.target.addEventListener('change', () => {
+      if (e.target.checked) {
+        checkedBox(index);
+      } else {
+        notChecked(index);
+      }
+    });
   }
+});
+
+clear.addEventListener('click', () => {
+  const items = document.querySelectorAll('.check');
+  items.forEach((item) => {
+    if (item.checked) {
+      item.parentElement.remove();
+    }
+  });
+  clearTasks();
 });
 
 window.addEventListener('DOMContentLoaded', todoList());
