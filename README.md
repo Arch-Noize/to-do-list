@@ -19,11 +19,9 @@
   - [Run tests](#run-tests)
   - [Deployment](#deployment)
 - [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
@@ -60,7 +58,8 @@
 
 ### Prerequisites
 
-- In order to run this project you need:
+In order to run this project you need:
+- Node.js and git on your local computer.
 
 Example command:
 
@@ -82,7 +81,10 @@ Example commands:
 
 ### Install
 
-- Install VS code, Node.js and git on your local computer.
+- Run:
+```sh
+npm start
+```
 
 ### Usage
 
@@ -95,19 +97,19 @@ npm start
 
 If you are facing linter errors, use:
 
-- For HTML:
+- For Hintrc:
 
 ```
 npx hint .
 ```
 
-- For CSS:
+- For Stylelint:
 
 ```
-npx stylelint "**/*.{css,scss}"
+npx stylelint "**/*.{css}"
 ```
 
-- For Javascript:
+- For ESlint:
 
 ```
 npx eslint .
@@ -115,7 +117,7 @@ npx eslint .
 
 ### Deployment
 
-- You can deploy this project using: GitHub pages
+- I deployed this project using: GitHub pages
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -126,14 +128,6 @@ npx eslint .
 
 - GitHub: [Arch-Noize](https://github.com/Arch-Noize)
 - LinkedIn: [Santiago Ruido](https://www.linkedin.com/in/santiago-ruido-a1404880/)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FUTURE FEATURES -->
-
-## 🔭 Future Features <a name="future-features"></a>
-
-- Adding and removing elements from the To-Do list. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
