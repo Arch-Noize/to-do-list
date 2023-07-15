@@ -1,13 +1,13 @@
 import {
-  todo, storeItem,
+  finalTodo, storeItem,
 } from './edit.js';
 
 export const checkedBox = (index) => {
-  todo[index].completed = true;
+  finalTodo[index].completed = true;
   storeItem();
 };
 
 export const notChecked = (index) => {
-  todo[index].completed = false;
+  finalTodo[index].completed = false;
   storeItem();
 };

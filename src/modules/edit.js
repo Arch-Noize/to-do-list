@@ -1,8 +1,6 @@
-/* eslint-disable import/no-mutable-exports */
-
 /* Storage */
 
-export let todo = JSON.parse(localStorage.getItem('items')) || [];
+let todo = JSON.parse(localStorage.getItem('items')) || [];
 
 export const storeItem = () => {
   localStorage.setItem('items', JSON.stringify(todo));
@@ -64,3 +62,7 @@ export function clearTasks() {
   todo = unchecked;
   storeItem();
 }
+
+const finalTodo = todo;
+
+export { finalTodo };

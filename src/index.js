@@ -1,5 +1,5 @@
 import {
-  todo, storeItem, addItem, editItem, removeItem, findIndex, clearTasks,
+  finalTodo, storeItem, addItem, editItem, removeItem, findIndex, clearTasks,
 } from './modules/edit.js';
 import { checkedBox, notChecked } from './modules/completed.js';
 import './index.css';
@@ -13,9 +13,9 @@ const clear = document.querySelector('#clear');
 /* To-do list displaying and storing */
 
 const todoList = () => {
-  todo.sort((a, b) => a.index - b.index);
+  finalTodo.sort((a, b) => a.index - b.index);
 
-  todo.forEach((item) => {
+  finalTodo.forEach((item) => {
     list.innerHTML += `
         <li class="item"> 
             <input type="checkbox" class="check"><span>${item.desc}</span><i class="fa fa-ellipsis-v"></i>
