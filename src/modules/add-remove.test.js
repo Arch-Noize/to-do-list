@@ -9,7 +9,6 @@ describe('Adding an item', () => {
       mockTask = {
         getItem: jest.fn(),
         setItem: jest.fn(),
-        removeItem: jest.fn(),
       }
       mockTask.getItem.mockReturnValue(JSON.stringify([]));
     });
@@ -30,8 +29,6 @@ describe('Adding an item', () => {
     });
 
     test('Remove item from list', () => {
-        addItem('Testing', mockTask);
-        addItem('Testing', mockTask);
         addItem('Testing', mockTask);
         removeItem(0, mockTask);
         expect(mockTask.getItem()).toHaveLength(2);
