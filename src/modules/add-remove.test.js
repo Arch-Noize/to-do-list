@@ -1,6 +1,6 @@
 /** @jest-environment jsdom */
 
-import { addItem, removeItem } from './add-remove';
+import { addItem, removeItem , editItem , findIndex , clearTasks } from './add-remove';
 
 describe('Adding an item', () => {
   let mockTask;
