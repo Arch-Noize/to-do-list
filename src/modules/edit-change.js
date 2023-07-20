@@ -22,10 +22,10 @@ export const notChecked = (index) => {
 };
 
 export function clearTasks() {
-  const unchecked = todo.filter((item) => item.completed === false);
+  const unchecked = finalTodo.filter((item) => item.completed === false);
   unchecked.forEach((item, index) => {
     item.index = index + 1;
   });
-  todo = unchecked;
+  finalTodo = unchecked;
   storeItem();
 }

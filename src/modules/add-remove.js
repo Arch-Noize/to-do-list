@@ -2,7 +2,7 @@
 
 /* Storage */
 
-export const todo = JSON.parse(localStorage.getItem('items')) || [];
+export let todo = JSON.parse(localStorage.getItem('items')) || [];
 
 export const storeItem = (storage) => {
   localStorage.setItem('items', JSON.stringify(storage));
