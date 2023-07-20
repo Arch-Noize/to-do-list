@@ -34,12 +34,20 @@
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
+Website dispalys a to-do list, using:
+- Javascript
+- HTML
+- CSS
+- And now Jest for unit testing
 
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
-
-- Website dispalys a to-do list that is generated dynamically through Javascript
+This website includes several functions, such as:
+- Editing items
+- Adding items
+- Removing items
+- Deleting checked items in one click of a button
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -129,6 +137,11 @@ npx eslint .
 
 - GitHub: [Arch-Noize](https://github.com/Arch-Noize)
 - LinkedIn: [Santiago Ruido](https://www.linkedin.com/in/santiago-ruido-a1404880/)
+
+👤 **Jean Emmanuel Cadet**
+
+- GitHub: [jecode93](https://github.com/jecode93)
+- LinkedIn: [Jean Emmanuel Cadet](https://www.linkedin.com/in/jean-emmanuel-cadet/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
