@@ -34,16 +34,20 @@
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
-
-<!-- Features -->
-
-### Key Features <a name="key-features"></a>
-
 Website dispalys a to-do list, using:
 - Javascript
 - HTML
 - CSS
 - And now Jest for unit testing
+- 
+<!-- Features -->
+
+### Key Features <a name="key-features"></a>
+This website includes several functions, such as:
+- Editing items
+- Adding items
+- Removing items
+- Deleting checked items in one click of a button
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
