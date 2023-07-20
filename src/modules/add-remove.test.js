@@ -1,6 +1,6 @@
 /** @jest-environment jsdom */
 import {
-  todo, addItem, removeItem, editItem, clearTasks, checkedBox, notChecked,
+  addItem, removeItem,
 } from './add-remove.js';
 
 describe('Testing items', () => {
@@ -33,33 +33,5 @@ describe('Testing items', () => {
     addItem('Testing', mockTask);
     removeItem(0, mockTask);
     expect(mockTask.getItem()).toHaveLength(2);
-  });
-
-  test('Edit a select task', () => {
-    const index = 0;
-    const desc = "I've been updated";
-    editItem(index, desc, mockTask);
-    expect(todo[index].description).toBe(desc);
-    expect(mockTask.setItem).not.toHaveBeenCalledTimes(1);
-    expect(mockTask.setItem).not.toHaveBeenCalledWith('items', JSON.stringify(todo));
-  });
-
-  test('If task is checked', () => {
-    checkedBox(0, mockTask);
-    expect(todo[0].completed).toBe(true);
-    expect(mockTask.setItem).not.toHaveBeenCalledWith('items', JSON.stringify(todo));
-  });
-
-  test('If task is unchecked', () => {
-    notChecked(0, mockTask);
-    expect(todo[0].completed).toBe(false);
-    expect(mockTask.setItem).not.toHaveBeenCalledWith('items', JSON.stringify(todo));
-  });
-
-  test('Clear all unchecked tasks', () => {
-    clearTasks();
-    for (let index = 0; index < mockTask.length; index += 1) {
-      expect(JSON.parse(mockTask.setItem.mock.calls[index]).toEqual([{ completed: false }]));
-    }
   });
 });

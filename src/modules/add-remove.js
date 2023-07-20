@@ -4,7 +4,7 @@
 
 export let todo = JSON.parse(localStorage.getItem('items')) || [];
 
-const storeItem = (storage) => {
+export const storeItem = (storage) => {
   localStorage.setItem('items', JSON.stringify(storage));
 };
 
@@ -17,7 +17,7 @@ export const addItem = (desc) => {
     index: todo.length + 1,
   };
   todo.push(item);
-  storeItem(todo);
+  storeItem();
 };
 
 /* Remove Item */
@@ -29,29 +29,3 @@ export const removeItem = (index, storage) => {
   }
   storeItem(storage);
 };
-
-export const editItem = (index, desc, storage) => {
-  todo[index].description = desc;
-  storeItem(storage);
-};
-
-const finalTodo = todo;
-
-export const checkedBox = (index) => {
-  finalTodo[index].completed = true;
-  storeItem();
-};
-
-export const notChecked = (index) => {
-  finalTodo[index].completed = false;
-  storeItem();
-};
-
-export function clearTasks() {
-  const unchecked = todo.filter((item) => item.completed === false);
-  unchecked.forEach((item, index) => {
-    item.index = index + 1;
-  });
-  todo = unchecked;
-  storeItem();
-}
