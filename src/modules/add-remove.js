@@ -1,21 +1,21 @@
 /* Storage */
 
-const todo = [];
+const todo = JSON.parse(localStorage.getItem('items')) || [];
 
 const storeItem = (storage) => {
-  storage.setItem('items', JSON.stringify(todo));
+  localStorage.setItem('items', JSON.stringify(storage));
 };
 
 /* Add Item */
 
-export const addItem = (desc, storage) => {
+export const addItem = (desc) => {
   const item = {
-    desc,
+    description: desc,
     completed: false,
     index: todo.length + 1,
   };
   todo.push(item);
-  storeItem(storage);
+  storeItem(todo);
 };
 
 /* Remove Item */

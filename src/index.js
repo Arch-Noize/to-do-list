@@ -19,7 +19,7 @@ const todoList = () => {
   finalTodo.forEach((item) => {
     list.innerHTML += `
         <li class="item"> 
-            <input type="checkbox" class="check"><span>${item.desc}</span><i class="fa fa-ellipsis-v"></i>
+            <input type="checkbox" class="check"><span>${item.description}</span><i class="fa fa-ellipsis-v"></i>
         </li>`;
   });
 };
@@ -37,7 +37,6 @@ addBtn.addEventListener('click', (e) => {
         </li>`;
     document.querySelector('#new').value = '';
   }
-  storeItem();
 });
 
 /* List Listeners */

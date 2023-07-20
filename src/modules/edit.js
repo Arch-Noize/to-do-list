@@ -18,11 +18,11 @@ export const findIndex = (e) => {
   let index = 0;
 
   for (let i = 0; i < items.length; i += 1) {
-    if (e.target.textContent === todo[i].desc) {
+    if (e.target.textContent === todo[i].description) {
       index = i;
-    } if (e.target.nextSibling.textContent === todo[i].desc) {
+    } if (e.target.nextSibling.textContent === todo[i].description) {
       index = i;
-    } else if (e.target.previousSibling.textContent === todo[i].desc) {
+    } else if (e.target.previousSibling.textContent === todo[i].description) {
       index = i;
     }
   }

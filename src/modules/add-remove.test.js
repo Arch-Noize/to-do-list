@@ -7,17 +7,17 @@ describe('Adding an item', () => {
 
     beforeEach(( ) => {
       mockTask = {
-        getTask: jest.fn(),
-        setTask: jest.fn(),
-        removeTask: jest.fn(),
+        getItem: jest.fn(),
+        setItem: jest.fn(),
+        removeItem: jest.fn(),
       }
-      mockTask.getTask.mockReturnValue(JSON.stringify([]));
+      mockTask.getItem.mockReturnValue(JSON.stringify([]));
     });
 
     test('Adding task to list', () => {
-        addItem('Test code', mockStorage);
-        expect(mockStorage.setItem).toHaveBeenCalledWith(
-          'tasks',
+        addItem('Test code', mockTask);
+        expect(mockTask.setItem).toHaveBeenCalledWith(
+          'items',
           JSON.stringify([{ description: 'Test code', completed: false, index: 1 }]),
         );
     });
@@ -33,8 +33,8 @@ describe('Adding an item', () => {
         addItem('Testing', mockTask);
         addItem('Testing', mockTask);
         addItem('Testing', mockTask);
-        removeItem(0, mockStorage);
-        expect(mockStorage.getItem()).toHaveLength(2);
+        removeItem(0, mockTask);
+        expect(mockTask.getItem()).toHaveLength(2);
     });
 
 })

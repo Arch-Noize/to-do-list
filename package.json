@@ -4,7 +4,7 @@
   "description": "<a name=\"readme-top\"></a>",
   "private": true,
   "scripts": {
-    "test": "jest —coverage",
+    "test": "jest --coverage",
     "build": "webpack",
     "start": "webpack serve --open"
   },
