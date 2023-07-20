@@ -39,7 +39,11 @@
 
 ### Key Features <a name="key-features"></a>
 
-- Website dispalys a to-do list that is generated dynamically through Javascript
+Website dispalys a to-do list, using:
+- Javascript
+- HTML
+- CSS
+- And now Jest for unit testing
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
