@@ -7,7 +7,7 @@ export const storeItem = () => {
 }
 
 export const editItem = (index, desc) => {
-  todo[index].desc = desc;
+  todo[index].description = desc;
   storeItem();
 };
 
