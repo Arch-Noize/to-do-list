@@ -39,7 +39,7 @@ Website dispalys a to-do list, using:
 - HTML
 - CSS
 - And now Jest for unit testing
-- 
+
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
