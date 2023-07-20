@@ -1,6 +1,6 @@
 /** @jest-environment jsdom */
 import {
-     editItem, clearTasks, checkedBox, notChecked,
+  editItem, clearTasks, checkedBox, notChecked,
 } from './edit-change.js';
 import { todo } from './add-remove.js';
 
@@ -42,5 +42,4 @@ describe('Testing editing items', () => {
       expect(JSON.parse(mockTask.setItem.mock.calls[index]).toEqual([{ completed: false }]));
     }
   });
-
-})
+});

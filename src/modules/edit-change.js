@@ -1,15 +1,15 @@
 /* eslint-disable import/no-mutable-exports */
 
-import { todo , storeItem } from "./add-remove.js";
+import { todo, storeItem } from './add-remove.js';
 
 todo = JSON.parse(localStorage.getItem('items')) || [];
+
+const finalTodo = todo;
 
 export const editItem = (index, desc, storage) => {
   finalTodo[index].description = desc;
   storeItem(storage);
 };
-
-const finalTodo = todo;
 
 export const checkedBox = (index) => {
   finalTodo[index].completed = true;
