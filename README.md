@@ -130,6 +130,11 @@ npx eslint .
 - GitHub: [Arch-Noize](https://github.com/Arch-Noize)
 - LinkedIn: [Santiago Ruido](https://www.linkedin.com/in/santiago-ruido-a1404880/)
 
+👤 **Jean Emmanuel Cadet**
+
+- GitHub: [jecode93](https://github.com/jecode93)
+- LinkedIn: [Jean Emmanuel Cadet](https://www.linkedin.com/in/jean-emmanuel-cadet/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
