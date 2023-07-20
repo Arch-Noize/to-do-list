@@ -1,3 +1,5 @@
+/* eslint-disable import/no-mutable-exports */
+
 /* Storage */
 
 export let todo = JSON.parse(localStorage.getItem('items')) || [];

@@ -1,5 +1,6 @@
 import {
-  finalTodo, editItem, findIndex, clearTasks, storeItem, checkedBox, notChecked , addItem, removeItem
+  finalTodo, editItem, findIndex, clearTasks, storeItem, checkedBox, notChecked, addItem,
+  removeItem,
 } from './modules/edit.js';
 import './index.css';
 

@@ -1,5 +1,7 @@
 /** @jest-environment jsdom */
-import { todo, addItem, removeItem , editItem , clearTasks , checkedBox , notChecked } from './add-remove.js';
+import {
+  todo, addItem, removeItem, editItem, clearTasks, checkedBox, notChecked,
+} from './add-remove.js';
 
 describe('Testing items', () => {
   let mockTask;
@@ -46,19 +48,18 @@ describe('Testing items', () => {
     checkedBox(0, mockTask);
     expect(todo[0].completed).toBe(true);
     expect(mockTask.setItem).not.toHaveBeenCalledWith('items', JSON.stringify(todo));
-  })
+  });
 
   test('If task is unchecked', () => {
     notChecked(0, mockTask);
     expect(todo[0].completed).toBe(false);
     expect(mockTask.setItem).not.toHaveBeenCalledWith('items', JSON.stringify(todo));
-  })
+  });
 
   test('Clear all unchecked tasks', () => {
     clearTasks();
-    for (let index = 0; index < mockTask.length; index += 1){
-      expect(JSON.parse(mockTask.setItem.mock.calls[index]).toEqual([{completed: false}]));
+    for (let index = 0; index < mockTask.length; index += 1) {
+      expect(JSON.parse(mockTask.setItem.mock.calls[index]).toEqual([{ completed: false }]));
     }
   });
-
 });
