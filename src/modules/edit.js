@@ -1,6 +1,8 @@
-/* Edit Item */
-
 let todo = JSON.parse(localStorage.getItem('items')) || [];
+
+export const storeItem = () => {
+  localStorage.setItem('items', JSON.stringify(todo));
+};
 
 export const addItem = (desc) => {
   const item = {
@@ -22,13 +24,11 @@ export const removeItem = (index, storage) => {
   storeItem(storage);
 };
 
-export const storeItem = () => {
-  localStorage.setItem('items', JSON.stringify(todo));
-};
+/* Edit Item */
 
-export const editItem = (index, desc) => {
+export const editItem = (index, desc, storage) => {
   todo[index].description = desc;
-  storeItem();
+  storeItem(storage);
 };
 
 /* Find Index */
@@ -59,6 +59,14 @@ export function clearTasks() {
   storeItem();
 }
 
-const finalTodo = todo;
+export const finalTodo = todo;
 
-export { finalTodo };
+export const checkedBox = (index) => {
+  finalTodo[index].completed = true;
+  storeItem();
+};
+
+export const notChecked = (index) => {
+  finalTodo[index].completed = false;
+  storeItem();
+};

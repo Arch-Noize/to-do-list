@@ -1,8 +1,7 @@
 /** @jest-environment jsdom */
+import { todo, addItem, removeItem , editItem , clearTasks } from './add-remove.js';
 
-import { addItem, removeItem , editItem , findIndex , clearTasks } from './add-remove';
-
-describe('Adding an item', () => {
+describe('Testing items', () => {
   let mockTask;
 
   beforeEach(() => {
@@ -14,10 +13,10 @@ describe('Adding an item', () => {
   });
 
   test('Adding task to list', () => {
-    addItem('Test code', mockTask);
+    addItem('Testing', mockTask);
     expect(mockTask.setItem).not.toHaveBeenCalledWith(
       'items',
-      JSON.stringify([{ description: 'Test code', completed: false, index: 1 }]),
+      JSON.stringify([{ description: 'Testing', completed: false, index: 1 }]),
     );
   });
 
@@ -33,4 +32,5 @@ describe('Adding an item', () => {
     removeItem(0, mockTask);
     expect(mockTask.getItem()).toHaveLength(2);
   });
+
 });
