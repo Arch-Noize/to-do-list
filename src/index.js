@@ -1,6 +1,6 @@
-import { addItem, removeItem } from './modules/add-remove'
+import { addItem, removeItem } from './modules/add-remove';
 import {
-  finalTodo, editItem, findIndex, clearTasks, storeItem
+  finalTodo, editItem, findIndex, clearTasks, storeItem,
 } from './modules/edit.js';
 import { checkedBox, notChecked } from './modules/completed.js';
 import './index.css';

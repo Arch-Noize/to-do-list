@@ -4,7 +4,7 @@ let todo = JSON.parse(localStorage.getItem('items')) || [];
 
 export const storeItem = () => {
   localStorage.setItem('items', JSON.stringify(todo));
-}
+};
 
 export const editItem = (index, desc) => {
   todo[index].description = desc;

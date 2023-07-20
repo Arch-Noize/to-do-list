@@ -8,13 +8,6 @@ const storeItem = (storage) => {
 
 /* Add Item */
 
-// let task = {
-//     description: '',
-//     completed: false,
-//     index: 0,
-//   };
-
-
 export const addItem = (desc) => {
   const item = {
     description: desc,
@@ -23,11 +16,6 @@ export const addItem = (desc) => {
   };
   todo.push(item);
   storeItem(todo);
-
-  // task.description = desc;
-  // task.completed = false;
-  // task.index = todo.length +1;
-  // todo.push(task);
 };
 
 /* Remove Item */

@@ -8,6 +8,9 @@
     "build": "webpack",
     "start": "webpack serve --open"
   },
+  "jest": {
+    "verbose": true
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Arch-Noize/to-do-list.git"

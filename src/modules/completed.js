@@ -1,4 +1,4 @@
-import {finalTodo, storeItem} from './edit.js';
+import { finalTodo, storeItem } from './edit.js';
 
 export const checkedBox = (index) => {
   finalTodo[index].completed = true;
