@@ -42,4 +42,11 @@ describe('Testing items', () => {
     expect(mockTask.setItem).not.toHaveBeenCalledWith('items', JSON.stringify(todo));
   });
 
+  test('Clear all unchecked tasks', () => {
+    clearTasks();
+    for (let index = 0; index < mockTask.length; index += 1){
+      expect(JSON.parse(mockTask.setItem.mock.calls[index]).toEqual([{completed: false}]));
+    }
+  });
+
 });
