@@ -33,4 +33,13 @@ describe('Testing items', () => {
     expect(mockTask.getItem()).toHaveLength(2);
   });
 
+  test('Edit a select task', () => {
+    const index = 0;
+    const desc = "I've been updated";
+    editItem(index, desc, mockTask);
+    expect(todo[index].description).toBe(desc);
+    expect(mockTask.setItem).not.toHaveBeenCalledTimes(1);
+    expect(mockTask.setItem).not.toHaveBeenCalledWith('items', JSON.stringify(todo));
+  });
+
 });
