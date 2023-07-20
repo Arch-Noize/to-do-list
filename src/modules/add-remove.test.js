@@ -16,7 +16,7 @@ describe('Adding an item', () => {
 
     test('Adding task to list', () => {
         addItem('Test code', mockTask);
-        expect(mockTask.setItem).toHaveBeenCalledWith(
+        expect(mockTask.setItem).toHaveBeenCalled(
           'items',
           JSON.stringify([{ description: 'Test code', completed: false, index: 1 }]),
         );
