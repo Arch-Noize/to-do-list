@@ -2,7 +2,6 @@
 import {
   todo, editItem, clearTasks, checkedBox, notChecked,
 } from './edit-change.js';
-// import { todo } from './add-remove.js';
 
 describe('Testing editing items', () => {
   let mockTask;

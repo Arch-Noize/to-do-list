@@ -7,7 +7,7 @@ export let todo = [
     description: '',
     completed: false,
     index: 1,
-  }
+  },
 ];
 
 export const editItem = (index, desc, storage) => {

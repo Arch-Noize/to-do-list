@@ -1,8 +1,6 @@
-/* eslint-disable import/no-mutable-exports */
-
 /* Storage */
 
-export let todo = JSON.parse(localStorage.getItem('items')) || [];
+const todo = JSON.parse(localStorage.getItem('items')) || [];
 
 export const storeItem = (storage) => {
   localStorage.setItem('items', JSON.stringify(storage));
