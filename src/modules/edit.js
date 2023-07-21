@@ -1,14 +1,34 @@
-/* Edit Item */
-
 let todo = JSON.parse(localStorage.getItem('items')) || [];
 
 export const storeItem = () => {
   localStorage.setItem('items', JSON.stringify(todo));
 };
 
-export const editItem = (index, desc) => {
+export const addItem = (desc) => {
+  const item = {
+    description: desc,
+    completed: false,
+    index: todo.length + 1,
+  };
+  todo.push(item);
+  storeItem(todo);
+};
+
+/* Remove Item */
+
+export const removeItem = (index, storage) => {
+  todo.splice(index, 1);
+  for (let i = index; i < todo.length; i += 1) {
+    todo[i].index = i + 1;
+  }
+  storeItem(storage);
+};
+
+/* Edit Item */
+
+export const editItem = (index, desc, storage) => {
   todo[index].description = desc;
-  storeItem();
+  storeItem(storage);
 };
 
 /* Find Index */
@@ -39,6 +59,14 @@ export function clearTasks() {
   storeItem();
 }
 
-const finalTodo = todo;
+export const finalTodo = todo;
 
-export { finalTodo };
+export const checkedBox = (index) => {
+  finalTodo[index].completed = true;
+  storeItem();
+};
+
+export const notChecked = (index) => {
+  finalTodo[index].completed = false;
+  storeItem();
+};

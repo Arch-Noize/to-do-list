@@ -1,8 +1,9 @@
 /** @jest-environment jsdom */
+import {
+  addItem, removeItem,
+} from './add-remove.js';
 
-import { addItem, removeItem } from './add-remove';
-
-describe('Adding an item', () => {
+describe('Testing items', () => {
   let mockTask;
 
   beforeEach(() => {
@@ -14,10 +15,10 @@ describe('Adding an item', () => {
   });
 
   test('Adding task to list', () => {
-    addItem('Test code', mockTask);
+    addItem('Testing', mockTask);
     expect(mockTask.setItem).not.toHaveBeenCalledWith(
       'items',
-      JSON.stringify([{ description: 'Test code', completed: false, index: 1 }]),
+      JSON.stringify([{ description: 'Testing', completed: false, index: 1 }]),
     );
   });
 

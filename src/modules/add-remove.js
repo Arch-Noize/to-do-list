@@ -2,7 +2,7 @@
 
 const todo = JSON.parse(localStorage.getItem('items')) || [];
 
-const storeItem = (storage) => {
+export const storeItem = (storage) => {
   localStorage.setItem('items', JSON.stringify(storage));
 };
 
@@ -15,7 +15,7 @@ export const addItem = (desc) => {
     index: todo.length + 1,
   };
   todo.push(item);
-  storeItem(todo);
+  storeItem();
 };
 
 /* Remove Item */
